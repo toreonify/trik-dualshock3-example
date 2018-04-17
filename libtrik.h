@@ -43,4 +43,6 @@ char servo_enable(unsigned char num);
 int servo_disable(int num);
 int servo_set(int num, int val);
 
+int motor_set(int num, unsigned char val);
+
 #endif

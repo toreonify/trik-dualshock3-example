@@ -20,8 +20,15 @@ const char* SERVO[] = {
 };
 #define SERVO_SIZE sizeof(SERVO) / sizeof(const char*)
 
+const char MOTOR[] = {
+	MOTOR_SPEED_M1,
+	MOTOR_SPEED_M2,
+	MOTOR_SPEED_M3,
+	MOTOR_SPEED_M4,
+};
+#define MOTOR_SIZE 4
 const char* MOTOR_ENABLE = "/sys/class/gpio/gpio62/value";
-const char* MOTOR_I2C_COMMAND = "i2cset -y 2 0x48 0x%X 0x%X w";
+const char* MOTOR_I2C_COMMAND = "i2cset -y 2 0x48 0x%X 0x%X w &";
 
 #define WRITE_BUF_SIZE 1024
 #define TEMP_BUF_SIZE 32
@@ -43,17 +50,17 @@ void init_devices() {
 		}
 	}
 
-	snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M1, MOTOR_DEFAULT_PWM);
-	system(buf);
-
-	snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M2, MOTOR_DEFAULT_PWM);
-	system(buf);
-
-	snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M3, MOTOR_DEFAULT_PWM);
-	system(buf);
-
-	snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M4, MOTOR_DEFAULT_PWM);
-	system(buf);
+	// snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M1, MOTOR_DEFAULT_PWM);
+	// system(buf);
+	//
+	// snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M2, MOTOR_DEFAULT_PWM);
+	// system(buf);
+	//
+	// snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M3, MOTOR_DEFAULT_PWM);
+	// system(buf);
+	//
+	// snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M4, MOTOR_DEFAULT_PWM);
+	// system(buf);
 
 	free(buf);
 	free(tmp);
@@ -165,4 +172,15 @@ int servo_set(int num, int val) {
 	}
 
 	return -1;
+}
+
+int motor_set(int num, unsigned char val) {
+	if (num < MOTOR_SIZE) {
+		char* buf = malloc(WRITE_BUF_SIZE + 1);
+
+		snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR[num], val);
+		system(buf);
+
+		free(buf);
+	}
 }
