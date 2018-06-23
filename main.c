@@ -224,96 +224,96 @@ void loop() {
 				}
 
 				// Wheels
-				// if (ev.part_id == JOYA_UP) {
-				// 	if (ev.data > BUTTON_DEADZONE) {
-				// 			long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
-				// 			printf("Up axis: %d\n", diff);
-				//
-				// 			if (ev.data - axis_state[JOYA_UP] > 1500) {
-				// 				motor_set(M1, diff);
-				// 				motor_set(M2, diff);
-				// 				motor_set(M3, diff);
-				// 				motor_set(M4, diff);
-				// 			}
-				// 	}
-				//
-				// 	axis_state[JOYA_UP] = ev.data;
-				// }
-				//
-				// if (ev.part_id == JOYA_DOWN) {
-				// 	if (ev.data > BUTTON_DEADZONE) {
-				// 		long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
-				//
-				// 		if (diff > 0) {
-				// 			motor_set(M1, -diff);
-				// 			motor_set(M2, -diff);
-				// 			motor_set(M3, -diff);
-				// 			motor_set(M4, -diff);
-				// 		}
-				// 	}
-				//
-				// 	axis_state[JOYA_DOWN] = ev.data;
-				// }
-				//
-				// if (ev.part_id == JOYA_LEFT) {
-				// 	if (ev.data > BUTTON_DEADZONE) {
-				// 		long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
-				//
-				// 		if (diff > 0) {
-				// 			motor_set(M1, diff);
-				// 			motor_set(M2, diff);
-				// 			motor_set(M3, -diff);
-				// 			motor_set(M4, -diff);
-				// 		}
-				// 	}
-				//
-				// 	axis_state[JOYA_LEFT] = ev.data;
-				// }
-				//
-				// if (ev.part_id == JOYA_RIGHT) {
-				// 	if (ev.data > BUTTON_DEADZONE) {
-				// 		long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
-				//
-				// 		if (diff > 0) {
-				// 			motor_set(M1, -diff);
-				// 			motor_set(M2, -diff);
-				// 			motor_set(M3, diff);
-				// 			motor_set(M4, diff);
-				// 		}
-				// 	}
-				//
-				// 	axis_state[JOYA_RIGHT] = ev.data;
-				// }
-				//
-				// if (ev.part_id == JOYA_L1) {
-				// 	if (ev.data > BUTTON_DEADZONE) {
-				// 		long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
-				//
-				// 		if (diff > 0) {
-				// 			motor_set(M1, diff);
-				// 			motor_set(M2, -diff);
-				// 			motor_set(M3, diff);
-				// 			motor_set(M4, -diff);
-				// 		}
-				// 	}
-				//
-				// 	axis_state[JOYA_L1] = ev.data;
-				// }
-				//
-				// if (ev.part_id == JOYA_R1) {
-				// 	if (ev.data > BUTTON_DEADZONE) {
-				// 		long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
-				//
-				// 		if (diff > 0) {
-				// 			motor_set(M1, -diff);
-				// 			motor_set(M2, diff);
-				// 			motor_set(M3, -diff);
-				// 			motor_set(M4, diff);
-				// 		}
-				// 	}
-				//
-				// 	axis_state[JOYA_R1] = ev.data;
-				// }
+				if (ev.part_id == JOYA_UP) {
+					if (ev.data > BUTTON_DEADZONE) {
+							long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
+							printf("Up axis: %d\n", diff);
+
+							if (ev.data - axis_state[JOYA_UP] > 1500) {
+								motor_set(M1, diff);
+								motor_set(M2, diff);
+								motor_set(M3, diff);
+								motor_set(M4, diff);
+							}
+					}
+
+					axis_state[JOYA_UP] = ev.data;
+				}
+
+				if (ev.part_id == JOYA_DOWN) {
+					if (ev.data > BUTTON_DEADZONE) {
+						long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
+
+						if (diff > 0) {
+							motor_set(M1, -diff);
+							motor_set(M2, -diff);
+							motor_set(M3, -diff);
+							motor_set(M4, -diff);
+						}
+					}
+
+					axis_state[JOYA_DOWN] = ev.data;
+				}
+
+				if (ev.part_id == JOYA_LEFT) {
+					if (ev.data > BUTTON_DEADZONE) {
+						long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
+
+						if (diff > 0) {
+							motor_set(M1, diff);
+							motor_set(M2, diff);
+							motor_set(M3, -diff);
+							motor_set(M4, -diff);
+						}
+					}
+
+					axis_state[JOYA_LEFT] = ev.data;
+				}
+
+				if (ev.part_id == JOYA_RIGHT) {
+					if (ev.data > BUTTON_DEADZONE) {
+						long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
+
+						if (diff > 0) {
+							motor_set(M1, -diff);
+							motor_set(M2, -diff);
+							motor_set(M3, diff);
+							motor_set(M4, diff);
+						}
+					}
+
+					axis_state[JOYA_RIGHT] = ev.data;
+				}
+
+				if (ev.part_id == JOYA_L1) {
+					if (ev.data > BUTTON_DEADZONE) {
+						long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
+
+						if (diff > 0) {
+							motor_set(M1, diff);
+							motor_set(M2, -diff);
+							motor_set(M3, diff);
+							motor_set(M4, -diff);
+						}
+					}
+
+					axis_state[JOYA_L1] = ev.data;
+				}
+
+				if (ev.part_id == JOYA_R1) {
+					if (ev.data > BUTTON_DEADZONE) {
+						long diff = constrain(map(ev.data, BUTTON_DEADZONE, 32767, 10, 70), 0, 70);
+
+						if (diff > 0) {
+							motor_set(M1, -diff);
+							motor_set(M2, diff);
+							motor_set(M3, -diff);
+							motor_set(M4, diff);
+						}
+					}
+
+					axis_state[JOYA_R1] = ev.data;
+				}
 				break;
 			case LIBENJOY_EV_BUTTON:
 				if ((ev.part_id == JOY_START) && (ev.data == 1)) {
@@ -324,25 +324,24 @@ void loop() {
 					mode = (mode + 1) % 3;
 				}
 
-				// if (((ev.part_id == JOY_UP) || (ev.part_id == JOY_DOWN) ||
-				// 	(ev.part_id == JOY_LEFT) || (ev.part_id == JOY_RIGHT) ||
-				// 	(ev.part_id == JOY_L1) || (ev.part_id == JOY_R1))
-				// && (ev.data == 0)) {
-				// 	printf("Button: %d %d\n", ev.part_id, ev.data);
-				// 	motor_set(M1, -10);
-				// 	motor_set(M2, -20);
-				// 	motor_set(M3, -10);
-				// 	motor_set(M4, -10);
-				// 	usleep(100);
-				// 	motor_set(M1, 0);
-				// 	motor_set(M2, 0);
-				// 	motor_set(M3, 0);
-				// 	motor_set(M4, 0);
-				// }
+				if (((ev.part_id == JOY_UP) || (ev.part_id == JOY_DOWN) ||
+					(ev.part_id == JOY_LEFT) || (ev.part_id == JOY_RIGHT) ||
+					(ev.part_id == JOY_L1) || (ev.part_id == JOY_R1))
+				&& (ev.data == 0)) {
+					printf("Button: %d %d\n", ev.part_id, ev.data);
+					motor_set(M1, -10);
+					motor_set(M2, -20);
+					motor_set(M3, -10);
+					motor_set(M4, -10);
+					usleep(100);
+					motor_set(M1, 0);
+					motor_set(M2, 0);
+					motor_set(M3, 0);
+					motor_set(M4, 0);
+				}
 
 				break;
 			case LIBENJOY_EV_CONNECTED:
-				//clearWindow(hw);
 				if (ev.data == 0) {
 					changeTextPtr(joyStatus, STATUS_DISCONNECTED);
 				} else {

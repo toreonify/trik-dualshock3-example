@@ -5,8 +5,6 @@
 
 #include "libtrik.h"
 
-#define _DEBUG 1
-
 const char* LED_RED_ENABLE = "/sys/devices/platform/leds-gpio/leds/led_red/brightness";
 const char* LED_GREEN_ENABLE = "/sys/devices/platform/leds-gpio/leds/led_green/brightness";
 
@@ -50,17 +48,17 @@ void init_devices() {
 		}
 	}
 
-	// snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M1, MOTOR_DEFAULT_PWM);
-	// system(buf);
-	//
-	// snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M2, MOTOR_DEFAULT_PWM);
-	// system(buf);
-	//
-	// snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M3, MOTOR_DEFAULT_PWM);
-	// system(buf);
-	//
-	// snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M4, MOTOR_DEFAULT_PWM);
-	// system(buf);
+	snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M1, MOTOR_DEFAULT_PWM);
+	system(buf);
+
+	snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M2, MOTOR_DEFAULT_PWM);
+	system(buf);
+
+	snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M3, MOTOR_DEFAULT_PWM);
+	system(buf);
+
+	snprintf(buf, WRITE_BUF_SIZE, MOTOR_I2C_COMMAND, MOTOR_FREQ_M4, MOTOR_DEFAULT_PWM);
+	system(buf);
 
 	free(buf);
 	free(tmp);
