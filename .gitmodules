@@ -1,0 +1,7 @@
+[submodule "hgui"]
+	path = hgui
+	url = git://github.com/jwatte/hgui.git
+
+[submodule "libenjoy"]
+	path = libenjoy
+	url = git://github.com/Tasssadar/libenjoy.git
